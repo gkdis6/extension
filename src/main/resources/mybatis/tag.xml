@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dev.mvc.main.TagMapper">
+
+	<select id="read" parameterType="Map" resultType="int">
+		SELECT count(tag) FROM tag WHERE tag = #{tag}
+	</select>
+	
+	<select id="readAll" resultType="dev.mvc.main.Tag">
+		SELECT tag FROM tag
+	</select>
+	
+	<insert id="add" parameterType="Map">
+		INSERT INTO tag
+		(tag)
+		VALUES(#{tag})
+	</insert>
+
+	<!-- 삭제 -->
+	<delete id="delete" parameterType="Map">
+		delete from tag
+		where tag=#{tag}
+	</delete>
+	
+</mapper>
